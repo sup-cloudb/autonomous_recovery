@@ -56,3 +56,81 @@ Tentei criar um outro banco a partir do backup ja realizado, porem estava em exe
 
 
 > O primeiro backup leva mais tempo, porem o segundo "FULL" é bem rapido
+
+
+
+
+[oracle@dbnorigin ~]$ ps -ef | grep rman
+oracle   28993  4972  0 14:48 pts/0    00:00:08 rman
+root     37234  4372  0 18:29 ?        00:00:00 su oracle -c /u01/app/oracle/product/19.0.0/dbhome_1/bin/rman target '"C##DBLCMUSER@DB0711_6rv_gru as sysbackup"' catalog /@DBRS log /opt/oracle/dcs/log/dbnorigin/rman/bkup/DB0711_6rv_gru/rman_configure_2024-07-22_18-29-56-9187285861858399689.log @/tmp/dcsserver/rman/rman2024-07-22_18-29-56-5354549677753518788.rman
+
+
+
+
+connected to target database: DB0711 (DBID=1468339561)
+connected to recovery catalog database
+recovery catalog schema version 23.04.00.23. is newer than RMAN version
+
+RMAN> CONFIGURE ARCHIVELOG DELETION POLICY TO NONE;
+2>
+old RMAN configuration parameters:
+CONFIGURE ARCHIVELOG DELETION POLICY TO NONE;
+new RMAN configuration parameters:
+CONFIGURE ARCHIVELOG DELETION POLICY TO NONE;
+new RMAN configuration parameters are successfully stored
+
+Recovery Manager complete.
+~
+
+CONFIGURE ARCHIVELOG DELETION POLICY TO NONE;
+
+
+quando convert to OSS :
+
+
+[oracle@dbnorigin ~]$ cat /tmp/dcsserver/rman/rman2024-07-22_18-34-38-8079873537132614215.rman
+configure controlfile autobackup on;
+configure compression algorithm 'LOW';
+configure encryption for database off;
+configure backup optimization off;
+CONFIGURE ENCRYPTION ALGORITHM 'AES256';
+
+
+
+set command id to "68609b75-6f49-4b97-b0a7-1759409b";
+report schema;
+show all;
+list incarnation of database;
+set echo on;
+set encryption on;
+backup device type sbt as compressed backupset current controlfile tag 'auto' format 'auto_cf_%d_%I_%U_%T_%t_set%s'  ;
+set encryption off;
+
+
+set command id to "ecdc161c-9e22-4384-ac1a-f4fece14";
+run{
+ALLOCATE CHANNEL C0 DEVICE TYPE 'SBT_TAPE' PARMS 'SBT_LIBRARY=/opt/oracle/dcs/commonstore/oss/DB0711_6rv_gru/libopc.so, ENV=(OPC_PFILE=/opt/oracle/dcs/commonstore/oss/DB0711_6rv_gru/90dbc7e5-ef10-4305-adb7-0b02d29410c1/opc_DB0711_6rv_gru.ora)' FORMAT '%d_%I_%U_%T_%t';
+ALLOCATE CHANNEL C1 DEVICE TYPE 'SBT_TAPE' PARMS 'SBT_LIBRARY=/opt/oracle/dcs/commonstore/oss/DB0711_6rv_gru/libopc.so, ENV=(OPC_PFILE=/opt/oracle/dcs/commonstore/oss/DB0711_6rv_gru/90dbc7e5-ef10-4305-adb7-0b02d29410c1/opc_DB0711_6rv_gru.ora)' FORMAT '%d_%I_%U_%T_%t';
+
+backup as compressed backupset incremental level 0 force  database tag 'auto' format 'auto_df_%d_%I_%U_%T_%t_set%s';
+}
+
+
+configure device type 'SBT_TAPE' backup type to compressed backupset;
+configure channel device type 'SBT_TAPE' maxpiecesize 2G format '%d_%I_%U_%T_%t' parms 'SBT_LIBRARY=/opt/oracle/dcs/commonstore/oss/DB0711_6rv_gru/libopc.so ENV=(OPC_PFILE=/opt/oracle/dcs/commonstore/oss/DB0711_6rv_gru/90dbc7e5-ef10-4305-adb7-0b02d29410c1/opc_DB0711_6rv_gru.ora)';
+CONFIGURE ENCRYPTION FOR DATABASE ON;
+CONFIGURE ARCHIVELOG DELETION POLICY TO NONE;
+
+
+
+
+set command id to "01e3844e-0bae-4e86-ab8b-f080dc6b";
+run{
+ALLOCATE CHANNEL D0 DEVICE TYPE DISK;
+DELETE NOPROMPT ARCHIVELOG ALL BACKED UP 2 TIMES TO SBT_TAPE;
+}
+
+
+[oracle@dbnorigin rman]$ cat rman2024-07-22_18-59-07-7016436141821091389.rman
+CONFIGURE ARCHIVELOG DELETION POLICY TO BACKED UP 1 TIMES TO 'SBT_TAPE';
+
