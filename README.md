@@ -13,7 +13,7 @@ PMs : Alex Goldblat
 
 Caminho de logs para backup : /var/opt/oracle/log/DB26AI/dtrs/rman/bkup
 
-<img width="1663" height="852" alt="Image" src="https://github.com/user-attachments/assets/88db7adb-d7b3-44fb-bdbf-0d9174464ffb" />
+![Print](https://github.com/user-attachments/assets/88db7adb-d7b3-44fb-bdbf-0d9174464ffb)
 
 Atenção para COMPRESSION LOW : 
 
@@ -407,26 +407,26 @@ default         _gateway        0.0.0.0         UG    100    0        0 bondeth0
 
 [root@dbnorigem ~]# dbcli list-pendingjobs
 
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/265e69cc-9118-4384-b97c-4a430b3d51d4)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/265e69cc-9118-4384-b97c-4a430b3d51d4)
 
 
 -  Foi feito um teste a partir do drop do banco e apos o restore/recovery : 
 
 [oracle@dbnorigem DB0710]$ rman target / catalog /@dbrs
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/90e82a66-d1c1-4f6c-b06f-e81f620a6f54)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/90e82a66-d1c1-4f6c-b06f-e81f620a6f54)
 
 
 > Restart na instance para ler o SPFILE restaurado : 
 
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/bf4fe1d7-6592-44e2-b33c-60d7c8f450f6)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/bf4fe1d7-6592-44e2-b33c-60d7c8f450f6)
 
 > Restore do CONTROLFILE : 
 
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/d84eaeee-5178-40c3-b3b8-cde596586c68)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/d84eaeee-5178-40c3-b3b8-cde596586c68)
 
 > RESTORE DATABASE : 
 
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/a6516803-44bb-4fb0-8389-63f4863bc29e)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/a6516803-44bb-4fb0-8389-63f4863bc29e)
 
 
 
@@ -437,18 +437,18 @@ default         _gateway        0.0.0.0         UG    100    0        0 bondeth0
 
   Exemplo :
 
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/5929254e-458b-4259-9082-884fac7cadd8)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/5929254e-458b-4259-9082-884fac7cadd8)
 
 
 > Para recuperar o backup da wallet é necessario a utilizacao da senha da TDE :
 
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/d99f1ad4-527c-4a3e-8196-554eb1fc8954)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/d99f1ad4-527c-4a3e-8196-554eb1fc8954)
 
 
 
 Tentei criar um outro banco a partir do backup ja realizado, porem estava em execucao um novo backup e por isso a console nao deixou eu prosseguir ( enquanto existia um backup em andamento )
 
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/1be62cbf-525d-46c1-b280-e99470995512)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/1be62cbf-525d-46c1-b280-e99470995512)
 
 
 > O primeiro backup leva mais tempo, porem o segundo "FULL" é bem rapido
@@ -538,7 +538,7 @@ CONFIGURE ARCHIVELOG DELETION POLICY TO BACKED UP 1 TIMES TO 'SBT_TAPE';
 
 DBPWCSLA
 
-![image](https://github.com/user-attachments/assets/8b215255-c4aa-424a-8a61-e85fb51e891a)
+![Print](https://github.com/user-attachments/assets/8b215255-c4aa-424a-8a61-e85fb51e891a)
 
 For any question, please contact the product management team:
  
@@ -582,39 +582,39 @@ It is strongly recommended that all Exadata Database Service-Dedicated, Exadata 
 1. >  Ao preparar o ambiente para utilizacao do DBRS é necessario associar um SUBNET para ser a utilizada pelo servico : 
         Com isso ela consumira 6 IPs da subnet. No caso abaixo foi escolhida a propria subnet de backup do exa-xs : 
 
-![image](https://github.com/user-attachments/assets/4b8d60fc-0480-40c7-832a-558892b17a18)
+![Print](https://github.com/user-attachments/assets/4b8d60fc-0480-40c7-832a-558892b17a18)
 
 > Melhor zoom : 
 
-![image](https://github.com/user-attachments/assets/e73fbac0-3dc1-4b27-a14b-f99f16155bc6)
+![Print](https://github.com/user-attachments/assets/e73fbac0-3dc1-4b27-a14b-f99f16155bc6)
 
 
-![image](https://github.com/user-attachments/assets/57ee8616-e8c3-49d8-98b6-f0dfa9d581a1)
+![Print](https://github.com/user-attachments/assets/57ee8616-e8c3-49d8-98b6-f0dfa9d581a1)
 
 
  Somente o jar do libopc.so vem no diretorio do commonstore 
 
 1. >  As libs ja vem instaladas no DBCS :
 
-![image](https://github.com/user-attachments/assets/57ee8616-e8c3-49d8-98b6-f0dfa9d581a1)
+![Print](https://github.com/user-attachments/assets/57ee8616-e8c3-49d8-98b6-f0dfa9d581a1)
 
  Somente o jar do libopc.so vem no diretorio do commonstore 
 
 3. >  Quando configura o backup automático, a automação configuração cria as pastas dbrs e oss :
 
-![image](https://github.com/user-attachments/assets/be9184ce-8bde-4455-bd45-0f6833bcec7b)
+![Print](https://github.com/user-attachments/assets/be9184ce-8bde-4455-bd45-0f6833bcec7b)
 
 Essa pasta dbrs 
 
 
-![image](https://github.com/user-attachments/assets/86c3a77e-da28-4429-9ff7-855ec664b589)
+![Print](https://github.com/user-attachments/assets/86c3a77e-da28-4429-9ff7-855ec664b589)
 
 4. >  O arquivo dbrsnames.ora, quando habilitamos o DBRS RTRT fica da seguinte forma : 
 
-![image](https://github.com/user-attachments/assets/30521314-77b9-4a0e-9b67-2d502cb6bfd8)
+![Print](https://github.com/user-attachments/assets/30521314-77b9-4a0e-9b67-2d502cb6bfd8)
 
 
-![image](https://github.com/user-attachments/assets/fb5059f7-fc04-4ac8-a866-2f1d56d5bea6)
+![Print](https://github.com/user-attachments/assets/fb5059f7-fc04-4ac8-a866-2f1d56d5bea6)
 
 
 ```
@@ -626,14 +626,14 @@ DBRS_ALTERNATE=(DESCRIPTION=(FAILOVER=on)(CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(TRAN
 
 3. >  Quando comentamos a entrada DBRS no arquivo dbrsnames.ora, o backup nao funciona mais : 
 
-![image](https://github.com/user-attachments/assets/a50a20b3-b67d-44a4-82f0-c4a63b95b955)
+![Print](https://github.com/user-attachments/assets/a50a20b3-b67d-44a4-82f0-c4a63b95b955)
 
-![image](https://github.com/user-attachments/assets/81ee77c7-2016-445f-98f4-4872952ab59c)
+![Print](https://github.com/user-attachments/assets/81ee77c7-2016-445f-98f4-4872952ab59c)
 
 
 4. >  A quantidade de OCPUs é a quantidade de PARALLEL que ele vai alocar , dessa forma se o DBCS tem 4 OCPUs ele vai criar um script de rman com 4 canais com sectionsize de 64GBs e FILESPERSET de 1.
 
-![Image](https://github.com/user-attachments/assets/fcbaee75-3221-47ab-ae23-610f356be24b)
+![Print](https://github.com/user-attachments/assets/fcbaee75-3221-47ab-ae23-610f356be24b)
 
 
 https://docs.oracle.com/en-us/iaas/exadatacloud/doc/ecs-managing-db-backup-and-recovery.html#GUID-F3967733-A31F-4CD7-9962-77F34EA54D02
@@ -708,13 +708,13 @@ UUID b0f6030b-20b0-4fc9-8b2a-0eeb985048fd for this backup
 
 Descomentei as entradas, para funcionar novamente mas no dashboard continua com Data Loss Exposure 
 
-![image](https://github.com/user-attachments/assets/1ffde591-e3f3-4746-8bdf-90936b7c2270)
+![Print](https://github.com/user-attachments/assets/1ffde591-e3f3-4746-8bdf-90936b7c2270)
 
 Recomendo visualizar e colocar eventos nas metricas diretas de "DATA LOSS EXPOSURE", com intervalos de 1 minuto. Assim vai monitorar melhor que via dashboard do servico.
 
-![image](https://github.com/user-attachments/assets/9c2e2d08-cff4-42a0-bec9-7dcd8689197d)
+![Print](https://github.com/user-attachments/assets/9c2e2d08-cff4-42a0-bec9-7dcd8689197d)
 
-![image](https://github.com/user-attachments/assets/25759e4b-e492-4b43-a77a-6c03dbd2ead4)
+![Print](https://github.com/user-attachments/assets/25759e4b-e492-4b43-a77a-6c03dbd2ead4)
 
 
 
@@ -770,12 +770,12 @@ SQL>
 
 ```
 
-![image](https://github.com/user-attachments/assets/5c12a77c-5b0e-4714-a5e6-0a2d644f6283)
+![Print](https://github.com/user-attachments/assets/5c12a77c-5b0e-4714-a5e6-0a2d644f6283)
 
 
 
 2.  A console deixa rodar um backup com retention policy e outro com LTR.
-<img width="1680" height="452" alt="Image" src="https://github.com/user-attachments/assets/3a385aa6-7489-4341-bd1f-cdd88dc8bd82" />
+![Print](https://github.com/user-attachments/assets/3a385aa6-7489-4341-bd1f-cdd88dc8bd82)
 
 2.  Com a mudanca de OSS para ZDLRS, as policies de rman sao automaticamente ajustadas para NONE
 ```
@@ -843,7 +843,7 @@ Quando estamos configurando o ARS para uma base ORACLE :
 > [root@exa1brscan-8ilfa1 jobs]# dbaascli database backup --dbname BRSPROD --status --uuid dd958817-61c6-4314-a918-18d35b9f42ca
 
 
-![image](https://github.com/user-attachments/assets/08963fee-47ce-4441-9620-66dda8b4931e)
+![Print](https://github.com/user-attachments/assets/08963fee-47ce-4441-9620-66dda8b4931e)
 
 
 
@@ -861,26 +861,26 @@ Quando estamos configurando o ARS para uma base ORACLE :
 
 [root@dbnorigem ~]# dbcli list-pendingjobs
 
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/265e69cc-9118-4384-b97c-4a430b3d51d4)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/265e69cc-9118-4384-b97c-4a430b3d51d4)
 
 
 -  Foi feito um teste a partir do drop do banco e apos o restore/recovery : 
 
 [oracle@dbnorigem DB0710]$ rman target / catalog /@dbrs
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/90e82a66-d1c1-4f6c-b06f-e81f620a6f54)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/90e82a66-d1c1-4f6c-b06f-e81f620a6f54)
 
 
 > Restart na instance para ler o SPFILE restaurado : 
 
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/bf4fe1d7-6592-44e2-b33c-60d7c8f450f6)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/bf4fe1d7-6592-44e2-b33c-60d7c8f450f6)
 
 > Restore do CONTROLFILE : 
 
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/d84eaeee-5178-40c3-b3b8-cde596586c68)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/d84eaeee-5178-40c3-b3b8-cde596586c68)
 
 > RESTORE DATABASE : 
 
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/a6516803-44bb-4fb0-8389-63f4863bc29e)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/a6516803-44bb-4fb0-8389-63f4863bc29e)
 
 
 
@@ -891,18 +891,18 @@ Quando estamos configurando o ARS para uma base ORACLE :
 
   Exemplo :
 
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/5929254e-458b-4259-9082-884fac7cadd8)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/5929254e-458b-4259-9082-884fac7cadd8)
 
 
 > Para recuperar o backup da wallet é necessario a utilizacao da senha da TDE :
 
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/d99f1ad4-527c-4a3e-8196-554eb1fc8954)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/d99f1ad4-527c-4a3e-8196-554eb1fc8954)
 
 
 
 Tentei criar um outro banco a partir do backup ja realizado, porem estava em execucao um novo backup e por isso a console nao deixou eu prosseguir ( enquanto existia um backup em andamento )
 
-![image](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/1be62cbf-525d-46c1-b280-e99470995512)
+![Print](https://github.com/sup-cloudb/autonomous_recovery/assets/72585042/1be62cbf-525d-46c1-b280-e99470995512)
 
 
 > O primeiro backup leva mais tempo, porem o segundo "FULL" é bem rapido
@@ -991,7 +991,7 @@ CONFIGURE ARCHIVELOG DELETION POLICY TO BACKED UP 1 TIMES TO 'SBT_TAPE';
 **Documentacao**
 1. > Para O LTR é necessario configurar os tres buckets: 
 
-![image](https://github.com/user-attachments/assets/b7bf5cb8-5d2f-452b-bfcd-49abedb74167)
+![Print](https://github.com/user-attachments/assets/b7bf5cb8-5d2f-452b-bfcd-49abedb74167)
 
 
 2. > Criamos os diretorios : 
@@ -1101,43 +1101,43 @@ run
 
 
 
-![image](https://github.com/user-attachments/assets/c6ff687e-726b-4c20-b94a-3cca9edb1792)
+![Print](https://github.com/user-attachments/assets/c6ff687e-726b-4c20-b94a-3cca9edb1792)
 
 
 
 
-![image](https://github.com/user-attachments/assets/b7b412f7-cc14-451b-a609-39bec3aa6c5d)
+![Print](https://github.com/user-attachments/assets/b7b412f7-cc14-451b-a609-39bec3aa6c5d)
 
 
 
  
 
 
-![image](https://github.com/user-attachments/assets/a22922b6-4816-4cd5-8b00-34060824802d)
+![Print](https://github.com/user-attachments/assets/a22922b6-4816-4cd5-8b00-34060824802d)
 
-![image](https://github.com/user-attachments/assets/7c875967-58a2-45f2-838e-c63315fa250f)
-
-
-![image](https://github.com/user-attachments/assets/8206a31a-32fe-4de1-95ed-f4c8ccad9de3)
-
-![image](https://github.com/user-attachments/assets/3657dc35-dc36-4eb1-a13f-a58e6ca7b887)
-
-![image](https://github.com/user-attachments/assets/0cba4cd1-435a-4957-9cc1-e3615223a373)
+![Print](https://github.com/user-attachments/assets/7c875967-58a2-45f2-838e-c63315fa250f)
 
 
-![image](https://github.com/user-attachments/assets/abf5820e-80d6-4fb6-b070-0fd5ca823401)
-![image](https://github.com/user-attachments/assets/16efcfe1-37b8-4052-b554-971c328c5169)
+![Print](https://github.com/user-attachments/assets/8206a31a-32fe-4de1-95ed-f4c8ccad9de3)
 
-![image](https://github.com/user-attachments/assets/3c9dd59f-0624-49fd-a57a-4787d8ef06d2)
+![Print](https://github.com/user-attachments/assets/3657dc35-dc36-4eb1-a13f-a58e6ca7b887)
 
-![image](https://github.com/user-attachments/assets/a27c72bc-6bff-418f-8284-998ee5288945)
+![Print](https://github.com/user-attachments/assets/0cba4cd1-435a-4957-9cc1-e3615223a373)
 
-![image](https://github.com/user-attachments/assets/688a0a09-ae97-488d-8005-e60501cc5085)
 
-![image](https://github.com/user-attachments/assets/1ade8012-1d41-4672-b5d8-d0d813935387)
+![Print](https://github.com/user-attachments/assets/abf5820e-80d6-4fb6-b070-0fd5ca823401)
+![Print](https://github.com/user-attachments/assets/16efcfe1-37b8-4052-b554-971c328c5169)
+
+![Print](https://github.com/user-attachments/assets/3c9dd59f-0624-49fd-a57a-4787d8ef06d2)
+
+![Print](https://github.com/user-attachments/assets/a27c72bc-6bff-418f-8284-998ee5288945)
+
+![Print](https://github.com/user-attachments/assets/688a0a09-ae97-488d-8005-e60501cc5085)
+
+![Print](https://github.com/user-attachments/assets/1ade8012-1d41-4672-b5d8-d0d813935387)
 
 Na configuracao do OEDA, os diskgroups do ZDLRA  sao 2 : CATALOG e  DELTA, as imagens de backup ficam no DELTA com redundancia NORMAL.
-![image](https://github.com/user-attachments/assets/4a278ebd-7a17-45eb-939f-335e7d88f0e6)
+![Print](https://github.com/user-attachments/assets/4a278ebd-7a17-45eb-939f-335e7d88f0e6)
 
 
 
@@ -1146,4 +1146,4 @@ Na configuracao do OEDA, os diskgroups do ZDLRA  sao 2 : CATALOG e  DELTA, as im
 **PERGUNTAS**
 1. > Todas as Oracle Policies estao configuradas para armazenagem em disco ? ou funciona semelhantemente ao RA 
 
-![Image](https://github.com/user-attachments/assets/af56a1f2-2659-4dce-bc85-7ed4236459f4)
+![Print](https://github.com/user-attachments/assets/af56a1f2-2659-4dce-bc85-7ed4236459f4)
